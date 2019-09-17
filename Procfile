@@ -1,1 +1,1 @@
-web: gunicorn app:server --preload
+web: gunicorn testdbt:server --preload
