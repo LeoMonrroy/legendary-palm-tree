@@ -8,7 +8,7 @@ import pandas as pd
 import time
 import os
 
-server = flask.Flask('app')
+server = flask.Flask('testdbt')
 server.secret_key = os.environ.get('secret_key', 'secret')
 
 df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/hello-world-stock.csv')
