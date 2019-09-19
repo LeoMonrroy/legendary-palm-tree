@@ -19,7 +19,7 @@ app.layout = html.Div(children=[
         figure={
             'data': [
                 {'x': [1, 2, 3, 4, 5], 'y': [4, 1, 2, 4, 7], 'type': 'line', 'name': 'T1'},
-                {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'dot', 'line': u'T2'},
+                {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'dot', 'line': 'T2'},
             ],
             'layout': {
                 'title': 'Dash Data Visualization'
