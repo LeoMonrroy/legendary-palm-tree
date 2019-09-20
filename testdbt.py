@@ -11,7 +11,7 @@ app.layout = html.Div(children=[
     html.H1(children='NEW TRY'),
 
     html.Div(children='''
-        Dash: A web application framework for Python.
+        Trying to learn DASH
     '''),
 
     dcc.Graph(
