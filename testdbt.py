@@ -14,8 +14,8 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 df = pd.read_csv(
-    'https://raw.githubusercontent.com/plotly/dash-bio-docs-files/master/' +
-    'volcano_data1.csv'
+    'https://raw.githubusercontent.com/LeoMonrroy/legendary-palm-tree/master/' +
+    'ensembl_human.csv'
 )
 
 app.layout = html.Div([
