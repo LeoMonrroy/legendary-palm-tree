@@ -1,56 +1,32 @@
-import pandas as pd
-
+# -*- coding: utf-8 -*-
 import dash
-import dash_bio as dashbio
-import dash_html_components as html
 import dash_core_components as dcc
-
+import dash_html_components as html
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-serve=app.server
+
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
+app.layout = html.Div(children=[
+    html.H1(children='TEST2'),
 
-df = pd.read_csv(
-    'https://raw.githubusercontent.com/plotly/dash-bio-docs-files/master/' +
-    'volcano_data1.csv'
-)
+    html.Div(children='''
+        Trying to learn DASH
+    '''),
 
-app.layout = html.Div([
-    'Effect sizes',
-    dcc.RangeSlider(
-        id='volcanoplot-input',
-        min=-3,
-        max=3,
-        step=0.05,
-        marks={
-            i: {'label': str(i)} for i in range(-3, 3)
-        },
-        value=[-0.5, 1]
-    ),
-    html.Br(),
-    html.Div(
-        dcc.Graph(
-            id='my-dashbio-volcanoplot',
-            figure=dashbio.VolcanoPlot(
-                dataframe=df
-            )
-        )
+    dcc.Graph(
+        id='example-graph',
+        figure={
+            'data': [
+                {'x': [1, 2, 3, 4, 5], 'y': [4, 1, 2, 4, 7], 'type': 'line', 'name': 'T1'},
+                {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'dot', 'line': 'T2'},
+            ],
+            'layout': {
+                'title': 'Dash Data Visualization'
+            }
+        }
     )
 ])
-
-
-@app.callback(
-    dash.dependencies.Output('my-dashbio-volcanoplot', 'figure'),
-    [dash.dependencies.Input('volcanoplot-input', 'value')]
-)
-def update_volcanoplot(effects):
-
-    return dashbio.VolcanoPlot(
-        dataframe=df,
-        genomewideline_value=2.5,
-        effect_size_line=effects
-    )
-
 
 if __name__ == '__main__':
     app.run_server(debug=True)
