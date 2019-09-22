@@ -7,7 +7,7 @@ import dash_core_components as dcc
 
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-
+serve=app.server
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 df = pd.read_csv(
