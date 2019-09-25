@@ -8,7 +8,7 @@ import plotly.graph_objects as go
 
 app = dash.Dash()
 server = app.server
-df = pd.read_csv('https://raw.githubusercontent.com/LeoMonrroy/legendary-palm-tree/master/fakegraph.csv', sep=",")
+df = pd.read_csv('https://raw.githubusercontent.com/LeoMonrroy/legendary-palm-tree/master/fakegraph.csv', sep=";")
 
 app.layout = html.Div(children=[
     html.H1(children='Försök till visualiseing'),
