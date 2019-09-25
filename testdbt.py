@@ -27,8 +27,6 @@ app.layout = html.Div(children=[
             ],
             'layout': go.Layout(
                 title: 'test'
-                xaxis={'title' : 'Tid'},
-                yaxis={'title' : 'gen'},
             )
         }
     ]),
