@@ -28,5 +28,4 @@ app.layout = html.Div(children=[
             'layout': go.Layout(
                 title='test'
             )
-        }
-    ]),
+        })])
