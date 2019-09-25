@@ -20,7 +20,7 @@ app.layout = html.Div(children=[
         figure={
             'data': [
                 go.Scatter(
-                    x=df.Th0_05h_Medel,
+                    x=df.Tidpunkter,
                     y=df.Th0_1h_2,
                     mode='markers'
                 )
