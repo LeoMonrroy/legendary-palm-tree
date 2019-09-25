@@ -21,7 +21,7 @@ app.layout = html.Div(children=[
             'data': [
                 go.Scatter(
                     x=df.Tidpunkter,
-                    y=df.Th0_1h_2,
+                    y=df.Provset,
                     mode='lines'
                 )
             ],
