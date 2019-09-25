@@ -8,11 +8,6 @@ import plotly.graph_objs as go
 import pandas as pd
 import numpy as np
 
-
-
-
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-
 app = dash.Dash()
 server = app.server
 df = pd.read_csv(
@@ -20,9 +15,9 @@ df = pd.read_csv(
 )
 
 app.layout = html.Div(children=[
-    html.H1(children='Hello projekt 6!! LÖST'),
+    html.H1(children='Försök till visualiseing'),
     html.Div(children='''
-        Dash: A web application framework for Python.
+        Grupp 6
     '''),
     dcc.Graph(
         id='Försök till datavisualisering',
