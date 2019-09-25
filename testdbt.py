@@ -21,7 +21,7 @@ app.layout = html.Div(children=[
             'data': [
                 go.Scatter(
                     x=df.columns,
-                    y=df.row,
+                    y=df.iterrows(),
                     mode='markers'
                 )
             ],
