@@ -2,57 +2,48 @@
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-import pandas as pd
-import dash
 import dash_bio as dashbio
+import plotly.plotly as py
+import plotly.graph_objs as go
+import pandas as pd
+import numpy as np
 
 
 
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app = dash.Dash()
 server = app.server
 df = pd.read_csv(
-    'https://raw.githubusercontent.com/LeoMonrroy/legendary-palm-tree/master/' +
-    'ensembl_human.csv'
+    'https://raw.githubusercontent.com/LeoMonrroy/legendary-palm-tree/master/'
 )
 
-app.layout = html.Div([
-    'Effect sizes',
-    dcc.RangeSlider(
-        id='volcanoplot-input',
-        min=-3,
-        max=3,
-        step=0.05,
-        marks={
-            i: {'label': str(i)} for i in range(-3, 3)
-        },
-        value=[-0.5, 1]
+app.layout = html.Div(children=[
+    html.H1(children='Hello projekt 6!! LÖST'),
+    html.Div(children='''
+        Dash: A web application framework for Python.
+    '''),
+    dcc.Graph(
+        id='Försök till datavisualisering',
+        figure={
+            'data': [
+                {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'line', 'name': 'SF'},
+                {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'line', 'name': u'Montréal'},
+            ],
+            'layout': {
+                'title': 'Dash Data Visualization'
+            }
+        }
     ),
-    html.Br(),
-    html.Div(
-        dcc.Graph(
-            id='my-dashbio-volcanoplot',
-            figure=dashbio.VolcanoPlot(
-                dataframe=df
-            )
-        )
-    )
+    dcc.Input(id='my-id', value='initial value', type="text"),
+    html.Div(id='my-div')
 ])
 
 
 @app.callback(
-    dash.dependencies.Output('my-dashbio-volcanoplot', 'figure'),
-    [dash.dependencies.Input('volcanoplot-input', 'value')]
+    Output(component_id='my-div', component_property='children'),
+    [Input(component_id='my-id', component_property='value')]
 )
-def update_volcanoplot(effects):
-
-    return dashbio.VolcanoPlot(
-        dataframe=df,
-        genomewideline_value=2.5,
-        effect_size_line=effects
-    )
-
-if __name__ == '__main__':
-    app.run_server(debug=True)
+def update_output_div(input_value):
+    return 'You\'ve entered "{}"'.format(input_value)
