@@ -26,6 +26,8 @@ app.layout = html.Div(children=[
                 )
             ],
             'layout': go.Layout(
-                title='test'
+                title='TH0 Genexpression över tid',
+                xaxis={'title' : 'Tid(h)'},
+                yaxis={'title': 'Expression .../...'},
             )
         })])
